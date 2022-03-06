@@ -1,0 +1,48 @@
+<mat-toolbar color=primary>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </button>
+  <span>Quiz IT</span>
+  <span class="example-spacer"></span>
+  <a
+  *ngIf="!isLoggedIn"
+  [routerLink]="'/login'"
+  routerLinkActive="router-link-active"
+   mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    Login
+    <!-- <mat-icon>login</mat-icon> -->
+  </a>
+  <a
+  *ngIf="!isLoggedIn"
+  [routerLink]="'/signup'"
+   routerLinkActive="router-link-active"
+   mat-icon-button class="example-icon mr20 ml20" aria-label="Example icon-button with share icon">
+    Register
+  </a>
+
+  <a
+  (click)="logout()"
+  *ngIf="isLoggedIn"
+  mat-icon-button
+  class="example-icon favorite-icon mr20 ml20"
+  aria-label="Example icon-button with heart icon"
+>
+  Logout
+</a>
+
+<button
+  *ngIf="isLoggedIn && user"
+  class="example-icon favorite-icon ml20"
+  mat-button
+  routerLink="/admin/profile"
+  aria-label="Example icon-button with heart icon"
+>
+  {{ user['username']| json }}
+</button>
+
+</mat-toolbar>
+
+
+<!-- [routerLink]="['/login']"
+[routerLink]="['/signup']" -->
